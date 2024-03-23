@@ -1,7 +1,12 @@
+import { FiPlus, FiSearch } from 'react-icons/fi';
+
 import { Conteiner, Brend, Menu, Search, Content, NewNote} from "./styles";
 
 import { Header } from "../../components/Header";
-import { ButtonText } from "../../components/ButtonText";
+import { Note } from "../../components/Note";
+import { Input } from "../../components/Input";
+import { Section } from "../../components/Section";
+import { ButtonText } from "../../components/buttontext";   /*aqui fica dando erro*/
 
 export function Home() {
     return(
@@ -19,15 +24,25 @@ export function Home() {
             </Menu>
 
             <Search>
-
+                <Input placeholder="search by title" icon={FiSearch} />
             </Search>
 
             <Content>
-
+                <Section title="minhas notas"> 
+                    <Note data={{
+                        title: 'react', 
+                        tags: [
+                            {id: '1', name: 'React'},
+                            {id: '2', name: 'Nodejs'},
+                        ]
+                        }} 
+                        />
+                </Section>
             </Content>
 
-            <NewNote>
-
+            <NewNote to="/new">
+                <FiPlus />
+                create note
             </NewNote>
         </Conteiner>
     )
